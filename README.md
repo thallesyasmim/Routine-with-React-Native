@@ -1,4 +1,4 @@
-# Routine with React Native
+# Rotina com React Native
 
 <p align="center">
   <img src="./.github/ui.PNG" alt="React Native UI App" />
