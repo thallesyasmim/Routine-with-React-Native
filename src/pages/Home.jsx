@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Image, View, ScrollView, Text, StyleSheet, Dimensions, TouchableOpacity  } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 
+import Card from '../components/Card'
+
 
 export default function Home() {
     const [routines, setRoutines] = useState([])
@@ -54,37 +56,26 @@ export default function Home() {
     }, [])
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <View style={styles.detailsContainer}>
                 <Text style={styles.title}>
                     Rotina
                 </Text>
                 {
                     routines.map((routine, index) => (
-                    <View style={styles.cardContainer}>
-                        <View style={styles.cardContainerSecondary}>
-                            <Feather name={routine.icon} size={20} color="#000" />
-                            <Text style={styles.cardTitle}>{routine.title}</Text>
-                        </View>
-                        <Text>
-                           {routine.desc}
-                        </Text>
-                        <View style={styles.cardContainerTertiary}>
-                            <Feather name="clock" size={18} color="#FCFAF7" />
-                            <Text style={styles.cardTextWhite}>{routine.hour}</Text>
-                        </View>
-                    </View>
+                        <Card icon={routine.icon} hour={routine.hour} title={routine.title} desc={routine.desc} />
                     ))
                 }
         </View>
-        </View> 
+        </ScrollView> 
 
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        paddingTop: 20
     },
 
     detailsContainer: {
@@ -98,45 +89,6 @@ const styles = StyleSheet.create({
         fontFamily: 'Montserrat_700Bold',
         textTransform: 'uppercase',
         marginBottom: 20,
-    },  
-
-    cardContainer: {
-        width: 300,
-        padding: 20,
-        borderWidth: 2,
-        borderColor: '#50CC77',
-        borderRadius: 5,
-        backgroundColor: '#FCFAF7',
-        marginBottom: 25
-    },
-
-    cardContainerSecondary: {
-        flexDirection: 'row',
-        marginBottom: 8
-    },
-
-    cardContainerTertiary: {
-        paddingVertical: 5,
-        paddingLeft: 10,
-        maxWidth: 145,
-        flexDirection: 'row',
-        marginTop: 10,
-        backgroundColor: '#50CC77',
-        borderRadius: 5
-    },
-
-    cardTitle: {
-        fontSize: 15,
-        fontFamily: 'Montserrat_600SemiBold',
-        textTransform: 'uppercase',
-        marginLeft: 10
-    },
-
-    cardTextWhite: {
-        color: '#fff',
-        fontFamily: 'Montserrat_500Medium',
-        textTransform: 'uppercase',
-        marginLeft: 5
     }
 })
 
