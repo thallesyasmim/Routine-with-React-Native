@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { Image, View, ScrollView, Text, StyleSheet, Dimensions, TouchableOpacity  } from 'react-native'
+import { Image, View, ScrollView, Text } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 
-import Card from '../components/Card'
+import Card from '../../components/Card'
+
+import styles from './styles'
 
 
 export default function Home() {
@@ -71,24 +73,3 @@ export default function Home() {
 
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        paddingTop: 20
-    },
-
-    detailsContainer: {
-        padding: 15,
-        alignItems: 'center'
-    },
-    
-    title: {
-        color: '#000',
-        fontSize: 40,
-        fontFamily: 'Montserrat_700Bold',
-        textTransform: 'uppercase',
-        marginBottom: 20,
-    }
-})
-
